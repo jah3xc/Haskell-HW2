@@ -14,19 +14,25 @@ prob1 = undefined
 -- @output
 -- @description: For prob2 we used recursion to solve. For the first case, negative numbers, we just simply assign a empty array. Next, we assign x<10 as a base case, when it triggers just to return a list with x. This is the base case because we're constantly dividing by 10 to break out each number and that isn't needed when there's one number. The last case is when the number is positive and bigger than 10. For this we recursevely send the function the number/10 and add the remainder to the list after the recursion
 
+--passes test1 but not test2
 prob2 :: Integer -> [Integer]
 prob2 x
-  | x <= 0 = []
+  | x < 0 = []
   | x < 10 = [x]
   | x >= 10 = prob2 (div x 10) ++ [mod x 10]
 
+prob3 :: a
+prob3 = undefined
 --Function prob3
 -- @type
 -- @param
 -- @output
 -- @description:
-prob3 :: a
-prob3 = undefined
+-- prob3 :: Integer -> [Integer]
+--prob3 x
+--   | x <= 0 = []
+--  | x < 10 = x ++ []
+--  | x >= 10 = [mod x 10] prob3 (div x 10)
 -- Function prob4
 -- @type   
 -- @param  
