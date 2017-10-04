@@ -1,20 +1,19 @@
 module Homework2 where
 import Test.QuickCheck
 -- Function prob1
--- @type   
--- @param  
+-- @type
+-- @param
 -- @output
 -- @description:
 -- listComp f p xs = [ f x | x <- xs, p x]
 prob1 :: a
 prob1 = undefined
 -- Function prob2
--- @type   
--- @param  
+-- @type
+-- @param
 -- @output
 -- @description: For prob2 we used recursion to solve. For the first case, negative numbers, we just simply assign a empty array. Next, we assign x<10 as a base case, when it triggers just to return a list with x. This is the base case because we're constantly dividing by 10 to break out each number and that isn't needed when there's one number. The last case is when the number is positive and bigger than 10. For this we recursevely send the function the number/10 and add the remainder to the list after the recursion
 
---passes test1 but not test2
 prob2 :: Integer -> [Integer]
 prob2 x
   | x < 0 = []
@@ -34,28 +33,31 @@ prob3 = undefined
 --  | x < 10 = x ++ []
 --  | x >= 10 = [mod x 10] prob3 (div x 10)
 -- Function prob4
--- @type   
--- @param  
+-- @type
+-- @param
 -- @output
 -- @description:
 prob4 :: a
 prob4 = undefined
 -- Function prob5
--- @type   
--- @param  
+-- @type
+-- @param
 -- @output
 -- @description:
-prob5 :: a
-prob5 = undefined
+--prob5 :: a
+--prob5 = undefined
+
+--works when i hard enter answers  but not for the tests (?!?)
+prob5 :: [Integer] -> Integer
+prob5 [] = 0
+prob5 (x:xs)
+  | x > 0 = x + prob5 xs
+  | x < 0 = prob5 xs
 
 
-
-
-
-        
----------------------------------------------              
+---------------------------------------------
 --               Unit Tests                --
----------------------------------------------  
+---------------------------------------------
 test_prob1 :: IO ()
 test_prob1  = do
   putStrLn "Problem 1 Results:"
@@ -154,13 +156,13 @@ prob5_test1 = quickCheckWith (stdArgs {maxSuccess = 1000}) prob5_property
   where
     prob5_property :: [Integer] -> Bool
     prob5_property xs = prob5 (map (abs) xs) == go' xs
-    go' :: [Integer] -> Integer 
+    go' :: [Integer] -> Integer
     go' is = go1 (map (abs) is) 0
       where go1 :: [Integer] -> Integer -> Integer
             go1 [] n     = n
             go1 (x:xs) n | (x < 10)   = go1 xs (x + n)
                          | (x > 9)    = go1 xs ((sum (go2 x)) + n)
-                         | otherwise  = go1 xs n 
+                         | otherwise  = go1 xs n
             go2 :: Integer -> [Integer]
             go2 x
               | x < 0      = []
