@@ -20,18 +20,18 @@ prob2 x
   | x < 10 = [x]
   | x >= 10 = prob2 (div x 10) ++ [mod x 10]
 
-prob3 :: a
-prob3 = undefined
+--prob3 :: a
+--prob3 = undefined
 --Function prob3
 -- @type
 -- @param
 -- @output
--- @description:
--- prob3 :: Integer -> [Integer]
---prob3 x
---   | x <= 0 = []
---  | x < 10 = x ++ []
---  | x >= 10 = [mod x 10] prob3 (div x 10)
+-- @description: For prob3, our thought process was much like prob 2; which was to divide by 10 each time till it was below 10 and then to add the last number. The difference on this was that we needed to add numbers to the list BEFORE calling the recursion. This will put the list in reverse order.
+prob3 :: Integer -> [Integer]
+prob3 x
+  | x < 0 = []
+  | x >= 10 = [mod x 10] ++ prob3 (div x 10)
+  | x >= 0 = x : []
 -- Function prob4
 -- @type
 -- @param
