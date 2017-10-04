@@ -39,20 +39,28 @@ prob3 x
 -- @description:
 prob4 :: a
 prob4 = undefined
+
+--this does it but doesn't pass the test either -- i suck
+--prob4 :: [Integer] -> [Integer]
+--prob4 [] = []
+--prob4 (xs) = map(*2) (filter(>=0)xs)
+
+
+
 -- Function prob5
 -- @type
 -- @param
 -- @output
 -- @description:
---prob5 :: a
---prob5 = undefined
+prob5 :: a
+prob5 = undefined
 
 --works when i hard enter answers  but not for the tests (?!?)
-prob5 :: [Integer] -> Integer
-prob5 [] = 0
-prob5 (x:xs)
-  | x > 0 = x + prob5 xs
-  | x < 0 = prob5 xs
+--prob5 :: [Integer] -> Integer
+--prob5 [] = 0
+--prob5 (x:xs)
+--  | x > 0 = x + prob5 xs
+--  | x < 0 = prob5 xs
 
 
 ---------------------------------------------
