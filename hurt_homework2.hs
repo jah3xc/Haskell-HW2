@@ -10,8 +10,7 @@ import Test.QuickCheck
 --need to run a filter on xs before passing to map?
 --Don't know if this works, can't test right now. The general concept should be right
 prob1 :: (a->b) -> (a->Bool) -> c -> c 
-prob1 f p xs
-  | map f (filter p xs)
+prob1 f p xs = map f (filter p xs)
 	
 -- Function prob2
 -- @type
