@@ -40,28 +40,14 @@ prob3 x
 -- @type
 -- @param
 -- @output
--- @description:
---prob4 :: a
---prob4 = undefined
+-- @description: Checks the length of the list to find out if it should multiply the first integer, then performs appropriate calculation and recursively calls the rest of the list
+	--If even, multiplies the head of the list. If odd it is left alone. This results in every other integer doubled, with the last integer the start that is never doubled
 prob4 :: [Integer] -> [Integer]
 prob4 [] = []
 prob4 [x] = [x]
 prob4 (x:xs) 
   | (length (x:xs)) `mod` 2 == 0 = (x * 2) : (prob4 xs)
   | otherwise = x : (prob4 xs)
---prob4:: [a] -> [a]
---prob4 [] = []
---prob4 (x:xs) = double x : prob4 xs
---prob4 [x] = x:[]
-
---double :: a -> a
---double x = x * 2
---prob4
---this does it but doesn't pass the test either -- i suck
---prob4 :: [Integer] -> [Integer]
---prob4 [] = []
---prob4 (xs) = map(*2) (filter(>=0)xs)
-
 
 
 -- Function prob5
