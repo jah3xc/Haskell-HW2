@@ -55,15 +55,18 @@ prob4 (x:xs)
 -- @param
 -- @output
 -- @description:
-prob5 :: a
-prob5 = undefined
+--prob5 :: a
+--prob5 = undefined
 
 --works when i hard enter answers  but not for the tests (?!?)
---prob5 :: [Integer] -> Integer
---prob5 [] = 0
---prob5 (x:xs)
---  | x > 0 = x + prob5 xs
---  | x < 0 = prob5 xs
+prob5 :: [Integer] -> Integer
+prob5 [] = 0
+prob5 [x] 
+  | x > 9 = (x `div` 10) + (x `mod` 10)
+  | otherwise = x 
+prob5 (x:xs) 
+  | x > 9 = (x `div` 10) + (x `mod` 10) + (prob5 xs)
+  | otherwise = x + (prob5 xs)  
 
 
 ---------------------------------------------
