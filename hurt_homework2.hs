@@ -6,8 +6,13 @@ import Test.QuickCheck
 -- @output
 -- @description:
 -- listComp f p xs = [ f x | x <- xs, p x]
-prob1 :: a
-prob1 = undefined
+-- [f x | x <- xs] is equivalent to map f xs
+--need to run a filter on xs before passing to map?
+--Don't know if this works, can't test right now. The general concept should be right
+prob1 :: (a->b) -> (a->Bool) -> c -> c 
+prob1 f p xs
+  | map f (filter p xs)
+	
 -- Function prob2
 -- @type
 -- @param
