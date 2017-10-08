@@ -42,7 +42,13 @@ prob3 x
 -- @output
 -- @description:
 --prob4 :: a
-prob4 = undefined
+--prob4 = undefined
+prob4 :: [Integer] -> [Integer]
+prob4 [] = []
+prob4 [x] = [x]
+prob4 (x:xs) 
+  | (length (x:xs)) `mod` 2 == 0 = (x * 2) : (prob4 xs)
+  | otherwise = x : (prob4 xs)
 --prob4:: [a] -> [a]
 --prob4 [] = []
 --prob4 (x:xs) = double x : prob4 xs
