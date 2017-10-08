@@ -54,7 +54,7 @@ prob4 (x:xs)
 -- @type
 -- @param
 -- @output
--- @description: Recursive;
+-- @description: Recursive; breaks up each number in a given list into individual digits and addes them up; recursive, therefore allowing it to work on number of any size
 prob5 :: [Integer] -> Integer
 prob5 [] = 0
 prob5 [x] 
