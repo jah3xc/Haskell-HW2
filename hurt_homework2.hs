@@ -54,19 +54,16 @@ prob4 (x:xs)
 -- @type
 -- @param
 -- @output
--- @description:
---prob5 :: a
---prob5 = undefined
-
---works when i hard enter answers  but not for the tests (?!?)
+-- @description: Recursive;
 prob5 :: [Integer] -> Integer
 prob5 [] = 0
 prob5 [x] 
-  | x > 9 = (x `div` 10) + (x `mod` 10)
+  | x > 9 = (x `mod` 10) + (prob5 [(x `div` 10)])
   | otherwise = x 
 prob5 (x:xs) 
-  | x > 9 = (x `div` 10) + (x `mod` 10) + (prob5 xs)
+  | x > 9 = (x `mod` 10) + (prob5 [(x `div` 10)]) + prob5 (xs)
   | otherwise = x + (prob5 xs)  
+
 
 
 ---------------------------------------------
