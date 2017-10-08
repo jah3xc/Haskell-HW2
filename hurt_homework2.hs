@@ -9,7 +9,7 @@ import Test.QuickCheck
 -- [f x | x <- xs] is equivalent to map f xs
 --need to run a filter on xs before passing to map?
 --Don't know if this works, can't test right now. The general concept should be right
-prob1 :: (a->b) -> (a->Bool) -> c -> c 
+prob1 :: (a->a) -> (a->Bool) -> [a] -> [a] 
 prob1 f p xs = map f (filter p xs)
 	
 -- Function prob2
@@ -42,14 +42,14 @@ prob3 x
 -- @output
 -- @description:
 --prob4 :: a
---prob4 = undefined
-prob4:: [a] -> [a]
-prob4 [] = []
-prob4 (x:xs) = double x : prob4 xs
-prob4 [x] = x:[]
+prob4 = undefined
+--prob4:: [a] -> [a]
+--prob4 [] = []
+--prob4 (x:xs) = double x : prob4 xs
+--prob4 [x] = x:[]
 
-double :: a -> a
-double x = x*2
+--double :: a -> a
+--double x = x * 2
 --prob4
 --this does it but doesn't pass the test either -- i suck
 --prob4 :: [Integer] -> [Integer]
