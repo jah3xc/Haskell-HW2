@@ -7,8 +7,7 @@ import Test.QuickCheck
 -- @description:
 -- listComp f p xs = [ f x | x <- xs, p x]
 -- [f x | x <- xs] is equivalent to map f xs
---need to run a filter on xs before passing to map?
---Don't know if this works, can't test right now. The general concept should be right
+-- This function first filters an input and applies a map to it. By using map, we can apply the function to everything that passes the filter, p. 
 prob1 :: (a->a) -> (a->Bool) -> [a] -> [a] 
 prob1 f p xs = map f (filter p xs)
 	
@@ -41,7 +40,7 @@ prob3 x
 -- @param
 -- @output
 -- @description: Checks the length of the list to find out if it should multiply the first integer, then performs appropriate calculation and recursively calls the rest of the list
-	--If even, multiplies the head of the list. If odd it is left alone. This results in every other integer doubled, with the last integer the start that is never doubled
+--If even, multiplies the head of the list. If odd it is left alone. This results in every other integer doubled, with the last integer the start that is never doubled
 prob4 :: [Integer] -> [Integer]
 prob4 [] = []
 prob4 [x] = [x]
@@ -54,7 +53,7 @@ prob4 (x:xs)
 -- @type
 -- @param
 -- @output
--- @description: Recursive; breaks up each number in a given list into individual digits and addes them up; recursive, therefore allowing it to work on number of any size
+-- @description: Recursive; breaks up each number in a given list into individual digits and adds them up, recursively, therefore allowing it to work on number of any size
 prob5 :: [Integer] -> Integer
 prob5 [] = 0
 prob5 [x] 
